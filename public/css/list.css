@@ -1,0 +1,50 @@
+.list{
+    width: 480px;
+    margin: auto;
+}
+.list__header{
+    text-align: center;
+}
+.list__ul{
+    width: 100%;
+    margin-top: 2rem;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+.list__list-item{
+    width: 100%;
+    padding: 2rem;
+    background-color: black;
+    border: 1px solid crimson;
+    box-shadow: 17px 15px 8px -3px rgba(0,0,0,0.75);
+}
+.list__list-item h1{
+    color: crimson;
+    margin-bottom: 0.5rem;
+}
+.list__list-item h3{
+    font-size: 0.8rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+.list__list-item a,
+.list__list-item button{
+    background-color: crimson;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+.list__list-item a:hover,
+.list__list-item button:hover{
+    background-color: darkred;
+    transition: 0.4s;
+}

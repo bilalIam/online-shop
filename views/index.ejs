@@ -1,17 +1,20 @@
 <%- include("includes/head.ejs")%>
+<link rel="stylesheet" href="/css/list.css">
 </head>
 <body>
 <%- include("includes/nav.ejs")%>
 
-    <h1>List of products</h1>
-    <% if(products.length === 0) { %>
-        <h1>nema nista bajo</h1>
-    <% } else { %>
-        <ul>
-            <% for(const product of products) { %>
-                <%- include("includes/product.ejs", {product}) %>
+    <div class="list">
+        <h1 class="list__header">List of products</h1>
+            <% if(products.length === 0) { %>
+                <h1 class="list__header">nema nista bajo</h1>
+            <% } else { %>
+                <ul class="list__ul">
+                    <% for(const product of products) { %>
+                        <%- include("includes/product.ejs", {product}) %>
+                    <% } %>
+                </ul>
             <% } %>
-        </ul>
-    <% } %>
+    </div>
 </body>
 </html>

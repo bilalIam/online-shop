@@ -10,6 +10,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'));
 
 const productsRoutes = require('./routes/products.routes');
 const adminRoutes = require("./routes/admin.routes");
