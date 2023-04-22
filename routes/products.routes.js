@@ -11,6 +11,7 @@ router.get("/products", (req, res) => {
     fs.readFile(p, (Err, products) => {
         res.render("index", {
             pageTile: "Online Shop",
+            path: "/products",
             products: JSON.parse(products),
         });
     });
@@ -21,12 +22,16 @@ router.get("/products/:id", (req, res) => {
 
     fs.readFile(p, (err, products) => {
         const product = JSON.parse(products).find((product) => product.id === id);
-        res.render("detaljno", {pageTile: product.title, product})
+        res.render("detaljno", {
+            pageTile: product.title,
+            path: "/products",
+            product
+        })
     })
 })
 
 router.get("/admin/add-product", (req, res) => {
-    res.render("add-product");
+    res.render("add-product", {path: "/admin/add-product"});
 });
 
 

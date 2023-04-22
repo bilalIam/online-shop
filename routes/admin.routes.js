@@ -6,7 +6,7 @@ const p = path.join(__dirname, '..', "data", "products.json");
 const router = express.Router();
 
 router.get("/admin/add-product", (req, res) => {
-    res.render("add-product");
+    res.render("add-product", {path: "/admin/add-product"});
 });
 
 router.post("/admin/add-product", (req, res) => {
