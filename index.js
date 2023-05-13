@@ -13,10 +13,16 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 const productsRoutes = require('./routes/products.routes');
+const cartRoutes = require('./routes/cart.routes');
 const adminRoutes = require("./routes/admin.routes");
 
-
+const errorControllers = require("./controllers/error.controllers")
 
 app.use(productsRoutes);
 app.use(adminRoutes);
+app.use(cartRoutes);
+
+
+app.get("*", errorControllers.error);
+
 app.listen(5000);

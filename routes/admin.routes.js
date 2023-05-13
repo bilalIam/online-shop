@@ -1,29 +1,16 @@
 const express = require("express");
-const path = require('path');
-const {v4} = require('uuid')
-const fs = require('fs');
-const p = path.join(__dirname, '..', "data", "products.json");
+
 const router = express.Router();
 
-router.get("/admin/add-product", (req, res) => {
-    res.render("add-product", {path: "/admin/add-product"});
-});
+const { getAddProduct, postAddProduct, getAdminProducts, getOrders } = require("../controllers/admin.controllers")
 
-router.post("/admin/add-product", (req, res) => {
-    const { title, price } = req.body;
 
-    const product = {
-        id: v4(),
-        title,
-        price
-    }
+router.get("/admin/add-product", getAddProduct);
 
-    fs.readFile(p, (err, products) => {
-        const updatedProducts = [product, ...JSON.parse(products)];
-        fs.writeFile(p, JSON.stringify(updatedProducts), () => {
-            res.redirect("/");
-        });
-    });
-});
+router.post("/admin/add-product", postAddProduct);
+
+router.get("/admin/products", getAdminProducts);
+
+router.get("/admin/orders", getOrders);
 
 module.exports = router;
